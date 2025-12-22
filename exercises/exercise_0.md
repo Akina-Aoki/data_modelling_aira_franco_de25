@@ -59,7 +59,7 @@ Course (course_id, course_name, credits)
 Teacher (teacher_id, name, department)
 
 #### c) Draw conceptual ERD with cardinalities 
-[Student Course Teacher ERD](../assets/ex_erd3.png)
+![Student Course Teacher ERD](../assets/ex_erd3.png)
 
 #### d) Define business rules (e.g. a student can enroll in max 4 courses)
 - A student can enroll in multiple courses, but each course can have 0 or multiple students enrolled.
@@ -78,7 +78,7 @@ Order (order_id, order_date, total_amount)
 Product (product_id, product_name, price)
 
 #### b) Sketch the conceptual ERD.
-[Customer Order ERD](../assets/ex_erd4.png)
+![Customer Order ERD](../assets/ex_erd4.png)
 
 #### c) Define business rules
 - A customer can place multiple orders, but each order is placed by one and only one customer.
@@ -119,7 +119,6 @@ Product (product_id, product_name, price)
 
 
 # Reference
-[Entity Relationship Diagram](https://amycottondmd.wordpress.com/2015/02/23/entity-relationship-diagram/)
-https://github.com/Akina-Aoki/data_modeling_course/blob/main/exercises/exercise0.md
+- [Entity Relationship Diagram](https://amycottondmd.wordpress.com/2015/02/23/entity-relationship-diagram/)
 
-[Crow's Foot](https://www.freecodecamp.org/news/crows-foot-notation-relationship-symbols-and-how-to-read-diagrams/)
+- [Crow's Foot](https://www.freecodecamp.org/news/crows-foot-notation-relationship-symbols-and-how-to-read-diagrams/)
