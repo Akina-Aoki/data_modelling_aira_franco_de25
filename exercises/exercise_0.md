@@ -3,20 +3,21 @@ These exercises are for you to learn fundamental concepts in data modeling. Many
 
 
 ## 0. Library Bookly
-A library called Bookly keeps track of books and members who borrow them. Each book has a title, author, and ISBN number. Each member has a membership ID, name, and contact information. A member can borrow multiple books, but each book can be borrowed by only one member at a time.
+A library called Bookly keeps track of books and members who borrow them. Each book has a title, author, and ISBN number. Each member has a membership ID, name, and contact information. **A member can borrow multiple books, but each book can be borrowed by only one member at a time.**
 
-![Entity Relationship Diagram](../assets/erd_fig.png)
+![Entity Relationship Diagram](../assets/exercise/erd_fig.png)
 
 #### a) Identify the entities and attributes for each entity.
-Entities =  Books, member
-Attributes = Book (title, author, ISBN number), Member (membership ID, name, contact information)
+Entities =  Books, Member
+Attributes = Book (book_id, title, author, ISBN number), Member (membership ID, name, contact information)
+Bridge Table (Borrow) = (borrow_id, member_id, book_id, borrow_date, return_date)
 
 #### b) Determine the relationship between member and books.
 
 Member "borrows" Books (one-to-many relationship)
 
 #### c) Draw a conceptual ERD using crow foots notation.
-![Books and Members ERD](../assets/ex_erd1.png)
+![Books and Members ERD](../assets/exercise/ex_erd1.png)
 
 ## 1. Conceptual ERD to words
 
@@ -35,7 +36,7 @@ This is an ERD conceptual diagram that a database designer and the business stak
 - Rental assigns Car
 
 #### c) Describe the relationships between the entities (one-to-many, one-to-one and many-to-many).
-![Customer Car Rental ERD](../assets/ex_erd2.png)
+![Customer Car Rental ERD](../assets/exercise/ex_erd2.png)
 many to many between Customer and Car through Rental.
 
 #### d) Define the relationship statement for example: 
@@ -59,7 +60,7 @@ Course (course_id, course_name, credits)
 Teacher (teacher_id, name, department)
 
 #### c) Draw conceptual ERD with cardinalities 
-![Student Course Teacher ERD](../assets/ex_erd3.png)
+![Student Course Teacher ERD](../assets/exercise/ex_erd3.png)
 
 #### d) Define business rules (e.g. a student can enroll in max 4 courses)
 - A student can enroll in multiple courses, but each course can have 0 or multiple students enrolled.
@@ -78,7 +79,7 @@ Order (order_id, order_date, total_amount)
 Product (product_id, product_name, price)
 
 #### b) Sketch the conceptual ERD.
-![Customer Order ERD](../assets/ex_erd4.png)
+![Customer Order ERD](../assets/exercise/ex_erd4.png)
 
 #### c) Define business rules
 - A customer can place multiple orders, but each order is placed by one and only one customer.

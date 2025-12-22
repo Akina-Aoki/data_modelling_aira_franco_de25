@@ -1,0 +1,21 @@
+Table Borrow {
+  borrow_id varchar [primary key]
+  member_id varchar [not null, unique, ref: > Member.member_id]
+  book_id varchar [not null, unique, ref: > Book.book_id]
+  borrow_date date [not null]
+  return_date date [not null]
+}
+
+Table Member {
+  member_id varchar [primary key]
+  name varchar [not null, unique]
+  contact_num integer [not null, unique]
+}
+
+Table Book{
+  book_id varchar [primary key]
+  author varchar [not null]
+  ISBN_number integer [not null]
+  title varchar [not null]
+}
+

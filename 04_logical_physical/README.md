@@ -1,3 +1,17 @@
+## Conceptual vs Logical Data Model
+
+| Aspect | Conceptual Data Model | Logical Data Model |
+|------|----------------------|-------------------|
+| Focus | Defines **what** the system contains | Defines **how** the system should be structured |
+| Level of Detail | High-level, business-oriented | More detailed, technical view |
+| Contents | Entities and relationships | Entities, relationships, attributes, primary & foreign keys |
+| DBMS Dependency | DBMS-agnostic | Still DBMS-agnostic |
+| Created By | Data architects and business stakeholders | Data architects and business analysts |
+| Representation | ER diagrams | Schemas |
+| Purpose | Define business entities, rules, and relationships | Translate business concepts into a technical structure |
+| Modeling Stage | First step in data modeling | Created after the conceptual model |
+
+
 ## Data models abstractions
 
 The table shows the different data models abstractions and their content. We can see that conceptual is an overview suitable for business, logical may also be suitable for business, while physical is more technical and implementation ready.
