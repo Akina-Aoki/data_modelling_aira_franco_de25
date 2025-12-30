@@ -2,6 +2,10 @@
 
 These exercises are for you to learn fundamental concepts in data modeling. Many of them can be done with pen and paper, physical whiteboard or with an ERD software such as Lucidchart and dbdiagram. It is good practice to work analogue as an important part of data modeling is to align various stakeholders with a mix of technical and business knowledge. It is also advised to discuss with your peers as data modeling usually is not done in solitude.
 
+## Reference material
+[Conceptual ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/03_erd_conceptual_model)
+[Logical and Physical ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/04_erd_logical_physical_model)
+
 ## Extra: Book and Member example
 
 Going back to the hospital exercise from [exercise0, task 0](https://github.com/AIgineerAB/data_modeling_course/blob/main/exercises/exercise0.md), we will build logical and physical data models. This is the conceptual data model after we've added the composite entities to take care of many-to-many relationships.
@@ -26,6 +30,8 @@ Going back to the hospital exercise from [exercise0, task 0](https://github.com/
 ## 0. Hospital example
 
 <img src="https://github.com/kokchun/assets/blob/main/data_modeling/conceptual_hospital.png?raw=true" alt="hospital conceptual" width="500">
+
+
 #### Create a physical data model using dbdiagram
 ![DBL of Book Borrow Member](../assets/exercise/ex_erd6.png)
 

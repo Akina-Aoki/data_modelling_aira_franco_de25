@@ -1,6 +1,10 @@
 # Exercise 0 - fundamental concepts of data modeling
 These exercises are for you to learn fundamental concepts in data modeling. Many of them can be done with pen and paper, physical whiteboard or with an ERD software such as Lucidchart. It is good practice to work analogue as an important part of data modeling is to align various stakeholders with a mix of technical and business knowledge. It is also advised to discuss with your peers as data modeling usually is not done in solitude.
 
+## Reference material
+[Conceptual ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/03_erd_conceptual_model)
+[Logical and Physical ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/04_erd_logical_physical_model)
+[Database Keys](https://github.com/AIgineerAB/data_modeling_course/tree/main/06_database_keys)
 
 ## 0. Library Bookly
 A library called Bookly keeps track of books and members who borrow them. Each book has a title, author, and ISBN number. Each member has a membership ID, name, and contact information. **A member can borrow multiple books, but each book can be borrowed by only one member at a time.**
@@ -9,17 +13,27 @@ A library called Bookly keeps track of books and members who borrow them. Each b
 
 #### a) Identify the entities and attributes for each entity.
 Entities =  Books, Member
-Attributes = Book (book_id, title, author, ISBN number), Member (membership ID, name, contact information)
-Bridge Table (Borrow) = (borrow_id, member_id, book_id, borrow_date, return_date)
+Attributes 
+- Book (book_id, title, author, isbn_nr, copy_nr) - Member (member_id, member_name, phone)
+- Bridge Table (Borrow) = (borrow_id, member_id, book_id, borrow_date)
 
 #### b) Determine the relationship between member and books.
+**Make sure that there will not be any M-to-M relationship between entities.**
 
-Member "borrows" Books (one-to-many relationship)
+| From Entity | To Entity | Cardinality | Business Meaning |
+|------------|-----------|-------------|------------------|
+| Member     | Borrow    | One-to-many | A member can have zero, one, or many borrow events |
+| Book       | Borrow    | One-to-many | A book can have zero, one, or many borrow events over time |
+| Borrow     | Member    | Many-to-one | Each borrow is linked to exactly one member |
+| Borrow     | Book      | Many-to-one | Each borrow is linked to exactly one book |
+| Member     | Book      | Many-to-many (via Borrow) | A member can borrow zero, one, or many books over time |
+| Book       | Member    | Many-to-many (via Borrow) | A book can be borrowed zero, one, or many times by different members over time |
+
 
 #### c) Draw a conceptual ERD using crow foots notation.
 ![Books and Members ERD](../assets/exercise/ex_erd1.png)
 
-## 1. Conceptual ERD to words
+## 1. Conceptual ERD to words 
 
 This is an ERD conceptual diagram that a database designer and the business stakeholders agreed upon in a car rental company called Carent.
 
