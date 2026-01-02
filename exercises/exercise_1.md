@@ -2,10 +2,11 @@
 
 These exercises are for you to learn fundamental concepts in data modeling. Many of them can be done with pen and paper, physical whiteboard or with an ERD software such as Lucidchart and dbdiagram. It is good practice to work analogue as an important part of data modeling is to align various stakeholders with a mix of technical and business knowledge. It is also advised to discuss with your peers as data modeling usually is not done in solitude.
 
-## Reference material (Github Repository to create logical and physical data models)
+## Reference materials (Other Github Repository to create logical and physical data models)
 [Conceptual ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/03_erd_conceptual_model)
 [Logical and Physical ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/04_erd_logical_physical_model)
 [Database Keys](https://github.com/AIgineerAB/data_modeling_course/tree/main/06_database_keys)
+[PostgreSQL Docs](https://www.postgresql.org/docs/current/)
 
 
 ## Class lecture: Book Library
@@ -43,13 +44,14 @@ Going back to the library exercise from [exercise0, task 0](https://github.com/A
 | Member        | Borrow       | Borrow cannot exist without a Member |
 | Book          | Borrow       | Borrow cannot exist without a Book |
 
+#### Create a physical data model using dbdiagram
+![DBL of Book Borrow Member](../assets/exercise/ex_erd6.png)
+
+
+
 ## 0. Hospital example
 
 <img src="https://github.com/kokchun/assets/blob/main/data_modeling/conceptual_hospital.png?raw=true" alt="hospital conceptual" width="500">
-
-
-#### Create a physical data model using dbdiagram
-![DBL of Book Borrow Member](../assets/exercise/ex_erd6.png)
 
 a) Create a logical data model using lucidcharts
 
@@ -61,3 +63,39 @@ d) Create a physical data model using dbdiagram
 
 e) Create a few tables manually, insert given data plus some more, and try to manually link foreign keys to primary keys. Can you satisfy that a doctor can work at several departments and several hospitals?
 
+
+## Theory
+| Question | Brief Answer |
+|--------|--------------|
+| a) What are common RDBMS constraints? | **NOT NULL** enforces mandatory values. **UNIQUE** prevents duplicate values. **CHECK** enforces conditional rules. **DEFAULT** assigns a fallback value. **PRIMARY KEY** uniquely identifies a row. **FOREIGN KEY** enforces relationships between tables. |
+| b) What does physical modeling have that logical modeling does not? | Physical modeling includes DB-specific details such as data types, indexes, storage structures, performance optimizations, and implementation constraints. |
+| c) How do you ensure referential integrity and why is it desirable? | Referential integrity is ensured using **FOREIGN KEY constraints**. It prevents orphan records, preserves data consistency, and enforces valid relationships across tables. |
+| d) How do cardinality relationships affect implementation? | Cardinality determines table structure: **1-to-many** uses foreign keys, **many-to-many** requires bridge tables, and **1-to-1** may be merged or constrained depending on design. |
+| e) What does domain constraint mean? | A domain constraint restricts the allowed values for a column based on data type, range, format, or predefined rules. |
+| f) What is a composite key and when do you use it? | A composite key is a primary key made of multiple columns. It is used when no single column uniquely identifies a row (common in bridge tables). |
+| g) What is DBML used for? | DBML is used to define database schemas in a readable text format and generate ER diagrams and SQL code. |
+
+
+## Glossary
+| Term | Meaning |
+|------|--------|
+| composite entity | An entity that resolves a many-to-many relationship, typically implemented as a bridge table with foreign keys. |
+| domain | The set of valid values that an attribute is allowed to have. |
+| constraint | A rule enforced by the database to maintain data accuracy and consistency. |
+| domain constraint | A rule that restricts the values of an attribute based on type, range, format, or allowed values. |
+| entity constraint | A rule that applies at the row level, ensuring each entity instance is uniquely identifiable (e.g., primary key). |
+| primary key | A column or set of columns that uniquely identifies each row in a table and cannot be NULL. |
+| foreign key | A column that references a primary key in another table to enforce relationships. |
+| bridge table | A table used to implement a many-to-many relationship by storing foreign keys from related tables. |
+| information engineering | A data modeling methodology focused on structured analysis and clear entity-relationship representation. |
+| attributes | Properties or characteristics that describe an entity. |
+| data integrity | The overall accuracy, consistency, and reliability of data in a database. |
+| entity integrity | Ensures that each table has a primary key and that the key uniquely identifies each row. |
+| referential integrity | Ensures that foreign key values correspond to existing primary key values in related tables. |
+| relation instance | The actual data (rows) contained in a table at a specific point in time. |
+| child entity | An entity that contains a foreign key referencing another entity. |
+| parent entity | An entity whose primary key is referenced by a foreign key in another entity. |
+| natural key | A key formed from real-world, meaningful data (e.g., ISBN, email). |
+| surrogate key | A system-generated key with no business meaning, often an auto-increment ID. |
+| candidate key | Any attribute or combination of attributes that can uniquely identify a row. |
+| alternate key | A candidate key that was not selected as the primary key. |
