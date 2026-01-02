@@ -5,6 +5,7 @@ These exercises are for you to learn fundamental concepts in data modeling. Many
 [Conceptual ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/03_erd_conceptual_model)
 [Logical and Physical ERD](https://github.com/AIgineerAB/data_modeling_course/tree/main/04_erd_logical_physical_model)
 [Database Keys](https://github.com/AIgineerAB/data_modeling_course/tree/main/06_database_keys)
+[M-M to One - M (viceversa)](https://www.relationaldbdesign.com/database-design/module6/convert-manyToManyRelationships-into-oneToManyRelationships.php)
 
 ## 0. Library Bookly
 A library called Bookly keeps track of books and members who borrow them. Each book has a title, author, and ISBN number. Each member has a membership ID, name, and contact information. **A member can borrow multiple books, but each book can be borrowed by only one member at a time.**
@@ -13,27 +14,38 @@ A library called Bookly keeps track of books and members who borrow them. Each b
 
 #### a) Identify the entities and attributes for each entity.
 Entities =  Books, Member
-Attributes 
-- Book (book_id, title, author, isbn_nr, copy_nr) - Member (member_id, member_name, phone)
-- Bridge Table (Borrow) = (borrow_id, member_id, book_id, borrow_date)
+Attributes =
+- Book (book_id, ISBN_nr, copy_nr))
+- BookCopy (title, author, isbn_nr) 
+- Member (member_id, member_name, phone)
+- Bridge Table (Borrow) = (borrow_id, borrow_date, member_id)
+- Composite Table (BorrowItem) = (borrow_item_id, borrow_id, book_id)
 
 #### b) Determine the relationship between member and books.
 **Make sure that there will not be any M-to-M relationship between entities.**
 
-| From Entity | To Entity | Cardinality | Business Meaning |
-|------------|-----------|-------------|------------------|
-| Member     | Borrow    | One-to-many | A member can have zero, one, or many borrow events |
-| Book       | Borrow    | One-to-many | A book can have zero, one, or many borrow events over time |
-| Borrow     | Member    | Many-to-one | Each borrow is linked to exactly one member |
-| Borrow     | Book      | Many-to-one | Each borrow is linked to exactly one book |
-| Member     | Book      | Many-to-many (via Borrow) | A member can borrow zero, one, or many books over time |
-| Book       | Member    | Many-to-many (via Borrow) | A book can be borrowed zero, one, or many times by different members over time |
+| From Entity | To Entity  | Cardinality | Business Meaning                                         |
+| ----------- | ---------- | ----------- | -------------------------------------------------------- |
+| Member      | Borrow     | 1 → N       | A member can have zero, one, or many borrow transactions |
+| Borrow      | Member     | N → 1       | Each borrow belongs to exactly one member                |
+| Borrow      | BorrowItem | 1 → N       | A borrow can contain one or many borrowed items          |
+| BorrowItem  | Borrow     | N → 1       | Each borrowed item belongs to one borrow                 |
+| BookCopy    | BorrowItem | 1 → N       | A book copy can appear in many borrow items over time    |
+| BorrowItem  | BookCopy   | N → 1       | Each borrow item references exactly one book copy        |
+| Book        | BookCopy   | 1 → N       | A book can have one or many physical copies              |
 
 
 #### c) Draw a conceptual ERD using crow foots notation.
 ![Books and Members ERD](../assets/exercise/ex_erd1.png)
+There is no direct M:N relationship in the final model. All many-to-many semantics are decomposed into associative entities, ensuring full normalization and transactional integrity.
+| Conceptual Relationship | Resolution                           |
+| ----------------------- | ------------------------------------ |
+| Member ↔ Book           | Resolved via **Borrow → BorrowItem** |
+| Borrow ↔ BookCopy       | Resolved via **BorrowItem**          |
 
-## 1. Conceptual ERD to words 
+
+
+## CAR RENTAL: 1. Conceptual ERD to words
 
 This is an ERD conceptual diagram that a database designer and the business stakeholders agreed upon in a car rental company called Carent.
 
