@@ -47,6 +47,17 @@ Going back to the library exercise from [exercise0, task 0](https://github.com/A
 #### Create a physical data model using dbdiagram
 ![DBL of Book Borrow Member](../assets/exercise/ex_erd6.png)
 
+#### Natural Keys and Surrogate Keys
+![Book Model's Natural and Surrogate Keys](../assets/exercise/ex_erd10.png)
+- A primary key is implemented using either a natural key or a surrogate key; the distinction is conceptual and depends on whether the key has real-world meaning or is system-generated.
+
+| Entity     | Natural Key | Surrogate Key  | Why                                 |
+| ---------- | ----------- | -------------- | ----------------------------------- |
+| Book       | ISBN_nr     | —              | ISBN is globally unique and stable  |
+| BookCopy   | —           | book_id        | Physical copies need artificial IDs |
+| Member     | —           | member_id      | Real-world data is unstable         |
+| Borrow     | —           | borrow_id      | System event, no natural identifier |
+| BorrowItem | —           | borrow_item_id | Bridge table needs simple joins     |
 
 
 ## 0. Hospital example
