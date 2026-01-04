@@ -13,7 +13,7 @@ A library called Bookly keeps track of books and members who borrow them. Each b
 ![Entity Relationship Diagram](../assets/exercise/erd_fig.png)
 
 #### a) Identify the entities and attributes for each entity.
-Entities =  Books, Member
+Entities =  Books, Member <br>
 Attributes =
 - Book (book_id, ISBN_nr, copy_nr))
 - BookCopy (title, author, isbn_nr) 
