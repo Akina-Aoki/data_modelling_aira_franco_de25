@@ -1,0 +1,17 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    figlet \
+    wget \
+    ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN wget -O /usr/share/figlet/starwars.flf \
+    https://raw.githubusercontent.com/xero/figlet-fonts/main/starwars.flf
+
+WORKDIR /app
+
+COPY app.py .
+
+CMD ["python3", "app.py"]
