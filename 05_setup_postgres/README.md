@@ -1,6 +1,15 @@
 # Setting up Postgres
 [Instructions Repository](https://github.com/Akina-Aoki/data_modeling_course/tree/main/05_setup_postgres)
+## 1a. Set up
+Follow the video in the link to set up docker on your computer according to your OS Video Instruction
 
+## 1b. Docker image
+A Docker image provides the blueprint for your environment, guaranteeing that everyone runs the exact same setup. Video Instruction
+
+## 1c. Docker compose
+A Docker Compose file lets you define and run multi‑container systems with a single command. It is commonly used in more complex pipelines. Video Instruction
+
+## Adding a `.env` file and `docker-compose.yml` file
 - `touch .env` to create a .env file in the root directory of this repo.
 - in `.env` tab, paste:
 `POSTGRES_HOST="localhost"
