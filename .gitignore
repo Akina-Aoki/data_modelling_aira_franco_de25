@@ -1,6 +1,9 @@
 # secrets
 .env
 
+.venv/
+
+
 # VSCODE
 .vscode/
 
