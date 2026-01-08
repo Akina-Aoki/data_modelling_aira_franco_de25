@@ -63,6 +63,8 @@ From the relationship cardinalities on the diagram, can you describe the busines
 ### f) Create a physical data model using dbdiagram
 
 ### g) Create a few tables manually, insert given data plus some more, and try to manually link foreign keys to primary keys. Can you satisfy that a doctor can work at several departments and several hospitals?
+* See ex1_hospital.dbml file.
+![Hospital Physical Model](../assets/exercise/hospital_dbml.png)
 
 
 ## 2. Implement hospital example in postgres

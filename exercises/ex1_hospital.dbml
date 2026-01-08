@@ -1,0 +1,33 @@
+Table Hospital{
+    hospital_id integer [primary key]
+    hospital_name string
+    address string
+}
+
+Table Department{
+    department_id integer [primary key]
+    department_name string
+}
+
+Table Doctor {
+    doctor_id INTEGER [primary key]
+    doctor_name VARCHAR(100) [not null]
+}
+
+Table HospitalDepartment{
+    hospital_department_id integer [primary key]
+    hospital_id integer [not null, ref: > Hospital.hospital_id]
+    department_id integer [not null, ref: > Department.department_id]
+}
+
+Table HospitalDoctor{
+    hospital_doctor_id integer [primary key]
+    hospital_id integer [not null, ref: > Hospital.hospital_id]
+    doctor_id integer [not null, ref: > Doctor.doctor_id]
+}
+
+Table DepartmentDoctor{
+    department_doctor_id integer [primary key]
+    department_id integer [not null, ref: > Department.department_id]
+    doctor_id integer [not null, ref: > Doctor.doctor_id]
+}
