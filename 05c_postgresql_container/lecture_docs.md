@@ -20,7 +20,7 @@
 ## Step 1: Start the PostgreSQL Container
 * After creating all the scripts and configuration files, run:
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 - Reads docker-compose.yml
 - Pulls the postgres:latest image (if missing)
