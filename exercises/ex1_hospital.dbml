@@ -10,8 +10,8 @@ Table Department{
 }
 
 Table Doctor {
-    doctor_id INTEGER [primary key]
-    doctor_name VARCHAR(100) [not null]
+    doctor_id integer [primary key]
+    doctor_name string [not null]
 }
 
 Table HospitalDepartment{
