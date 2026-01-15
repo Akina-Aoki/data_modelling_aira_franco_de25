@@ -1,0 +1,26 @@
+services:                                                   # service definition for the PostgreSQL container
+  postgres:                                                 #  name of the service
+    image: postgres:latest  
+    container_name: postgres                                # name of the container
+    restart: always                                         # ensures the container restarts automatically if it crashes
+    environment:                                            # environment variables for PostegreSQL configuration
+      POSTGRES_USER: ${POSTGRES_USER}                       # PostgreSQL username
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}               # PostgreSQL password
+      POSTGRES_DB: ${POSTGRES_DB}                           # default database name
+    ports:                                                  # port mapping between host and container
+      - "${POSTGRES_PORT}:5432"                             # maps host port to container port
+    volumes:                                                # distinguish between named volumes and bind mounts  
+      - postgres_data:/var/lib/postgresql              # named volume for persistent data storage
+      - ./sql:/sql                                         # bind mount for persisting data
+
+    healthcheck:                                            # define a check after the container is running
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"] # command to check if PostgreSQL is ready
+      interval: 5s
+      retries: 5
+      timeout: 3s
+
+
+volumes:              # named volume (which can be seen under the Volume section of the GUI) GUI stands for Graphical User Interface
+  postgres_data:
+
+    
